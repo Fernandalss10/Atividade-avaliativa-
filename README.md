@@ -88,4 +88,92 @@ void main() {
       print ('$nome andou!');   
     }
   }
+  
+  
+  
+  
+------------------------------------------------ ATIVIDADE PARA PONTO (4,0 pontos)  ----------------------------------------------
 
+
+void main(){
+
+  Banco b = new Banco('Nome', 000, 'Normal', 1000.00);
+  
+
+  print ("1- Criar conta");
+  print ("2- Depósito");
+  print ("3- Saque");
+  print ("4- Saldo");
+  print ("5- Transferência");
+
+print ("-----------------------");
+b.criar_conta();
+print ("-----------------------");     
+b.deposito(200.00);
+print ("-----------------------");     
+b.saque(100.00);
+print ("-----------------------"); 
+b.saldo();
+print ("-----------------------");
+b.transferencia(300.00);
+print ("-----------------------");
+         
+}
+class Banco {
+  String nome; 
+  int num;
+  String tipo;
+  double saldo_atual;
+  double valor_depos;
+  double valor_saque;
+  double valor_trans;
+  
+  Banco(this.nome, this.num, this.tipo, this.saldo_atual);
+  
+  void criar_conta (){
+    print ('Nome: $nome');
+    print ('Conta: $num');
+    print ('Tipo: $tipo');
+    print ('Saldo: $saldo_atual');
+  }
+  
+  void saldo (){
+    print ('Saldo Atual: ${this.saldo_atual}');
+  }
+  
+  void deposito (double valor_depos){
+    this.saldo_atual = saldo_atual + valor_depos;
+    print ("Depósito realizado com sucesso!");
+    saldo();    
+  }
+  
+  void saque (double valor_saque){
+    
+    if (saldo_atual >= valor_saque) {
+    this.saldo_atual = saldo_atual - valor_saque;
+    print ("Saque realizado com sucesso!");
+    saldo(); 
+    }
+    else {
+      print ("Saldo insuficiente!");
+      saldo(); 
+    }
+  }
+    
+    void transferencia (double valor_trans){
+    
+    if (saldo_atual >= valor_trans) {
+    this.saldo_atual = saldo_atual - valor_trans;
+    print ("Tranferência realizada com sucesso!");
+    saldo(); 
+    }
+    else {
+      print ("Saldo insuficiente!");
+      saldo(); 
+    }
+  }
+  
+  
+  
+}
+  
